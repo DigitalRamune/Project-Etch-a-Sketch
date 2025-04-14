@@ -13,7 +13,9 @@ function createGrid() {
 
         for (let x = 0; x < width; x++) {
             const div = document.createElement("div");
+            const gridWidth = 750 / width;
             div.setAttribute("class", "grid");
+            div.setAttribute("style", `width: ${gridWidth}px;`);
             divLine.appendChild(div);
         }
 
@@ -24,9 +26,7 @@ function createGrid() {
 
 
 
-container.addEventListener("mouseover", function (e) {
-    e.target.style.background = "blue";
-});
+
 
 let under100;
 
@@ -41,6 +41,10 @@ btn.addEventListener("click", () => {
         if (height <= 100 && width <= 100) {
             createGrid(); 
             under100 = true;
+
+            container.addEventListener("mouseover", function (e) {
+                e.target.style.background = "blue";
+            });
         }
         else {
             under100 = false;
