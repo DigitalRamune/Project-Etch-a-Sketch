@@ -24,8 +24,13 @@ function createGrid() {
 
 }
 
+var randomColor = Math.floor(Math.random()*16777215).toString(16);
 
-
+function randomHexColor() {
+    var randomColor = Math.floor(Math.random()*16777215).toString(16);
+    var randomColorString = `#${randomColor}`;
+    return randomColorString;
+}
 
 
 let under100;
@@ -43,7 +48,7 @@ btn.addEventListener("click", () => {
             under100 = true;
 
             container.addEventListener("mouseover", function (e) {
-                e.target.style.background = "blue";
+                e.target.style.background = randomHexColor();
             });
         }
         else {
