@@ -28,14 +28,26 @@ container.addEventListener("mouseover", function (e) {
     e.target.style.background = "blue";
 });
 
-btn.addEventListener("click", () => {
-    height = Number(prompt("Number of squares per column ?"));
-    width = Number(prompt("Number of squares per line ?"));
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
+let under100;
 
-    createGrid();
+btn.addEventListener("click", () => {
+    do {
+        height = Number(prompt("Number of squares per column ?"));
+        width = Number(prompt("Number of squares per line ?"));
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+
+        if (height <= 100 && width <= 100) {
+            createGrid(); 
+            under100 = true;
+        }
+        else {
+            under100 = false;
+        }
+        
+    } while (!under100);
+
 });
 
 
